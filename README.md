@@ -14,7 +14,10 @@ I don't understand Marlin's versioning scheme, but the code in this repo is defi
 1. PID autotuning via `M303`
 2. gcode access to EEPROM for storing & manipulating certain parameters via `M501` and `M502`
 3. volumetric filament math
+5. automatic bed leveling
 4. lots of other tweaks I haven't investigated yet
+
+Might end up trying to implement automatic bed leveling - https://www.matterhackers.com/news/automatic-printer-calibration-update
 
 ### Useful resources for tuning params:
 
