@@ -1,24 +1,28 @@
 # TAM-Series1-2013-Marlin
-Marlin 1.0.0 customized for Type A Machines Series 1 - 2013 Plywood edition
+Marlin 1.0.0 (2015) customized for Type A Machines Series 1 - 2013 Plywood edition
 
-Marlin 1.0.0 firmware configured for Type A Machines Series 1 - 2013 Plywood edition. Couldn't find an official Marlin 1.0 release for my older machine from Type A, so I grabbed the firmware for one of their newer machines and reconfigured (hopefully) all of the relevant parameters for my machine. Mostly just in Configuration.h.
+Marlin 1.0.0 circa 2015 firmware configured for Type A Machines Series 1 - 2013 Plywood edition. Couldn't find a recent Marlin release configured for my older machine from Type A, so I adapted [a newer version of Marlin that ships with their new metal Series 1](https://bitbucket.org/typeamachines/marlin) and reconfigured (hopefully) all of the relevant parameters for my machine. Mostly just in Configuration.h.
 
-I inferred the particulars of the steppers and belts on my machine through trial and error, so use at your own risk.
+Plan to eventually upgrade to [Marlin 1.1.0](https://github.com/MarlinFirmware/Marlin) when it is officially released.
 
-Useful resources for tuning params:
+### Note
 
-http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
+I inferred the particulars of the steppers and belts on my machine through trial and error, so use at your own risk. My machine is plywood with serial no. 0000018 and it's not clear from Type A's website what specific steppers shipped in this early unit, hence the experimentation with the configuration.h `DEFAULT_AXIS_STEPS_PER_UNIT`.
 
-http://www.thingiverse.com/thing:13441
+I don't understand Marlin's versioning scheme, but the code in this repo is definitely newer than what shipped on my unit. In particular, the version of Marlin in this repo includes
 
-http://www.thingiverse.com/thing:5573 & http://www.thingiverse.com/thing:264782/
+1. PID autotuning via `M303`
+2. gcode access to EEPROM for storing & manipulating certain parameters via `M501` and `M502`
+3. volumetric filament math
+4. lots of other tweaks I haven't investigated yet
 
-http://support.typeamachines.com/hc/en-us/articles/200364725-Gcode-Supported-By-Marlin-and-Series-1
+### Useful resources for tuning params:
 
-http://www.thingiverse.com/thing:52946
-
----
-
+- http://www.thingiverse.com/thing:52946
+- http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide
+- http://www.thingiverse.com/thing:13441
+- http://www.thingiverse.com/thing:5573 & http://www.thingiverse.com/thing:264782/
+- http://support.typeamachines.com/hc/en-us/articles/200364725-Gcode-Supported-By-Marlin-and-Series-1
 
 In particular, my tuned settings for stepper steps/mm:
 ```c
